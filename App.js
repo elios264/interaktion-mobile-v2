@@ -5,14 +5,11 @@ import { ApplicationProvider, Layout, Text, Button, IconRegistry, Icon } from '@
 import { useFonts } from 'expo-font';
 import { AppLoading } from 'expo';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { AppNavigator } from './navigation.component';
 
 
 import { default as theme } from './custom-theme.json';
 import { default as mapping } from './mapping.json';
-
-const FacebookIcon = (props) => (
-  <Icon name='facebook' {...props} />
-);
 
 export default function App() {
 
@@ -29,13 +26,10 @@ export default function App() {
 
   return (
     <>
+      <StatusBar style='inverted' />
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={{ ...eva.dark, ...theme }} customMapping={mapping} >
-        <StatusBar style='inverted' />
-        <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-          <Text category='h1'>HOME</Text>
-          <Button accessoryLeft={FacebookIcon}>Login with Facebook</Button>
-        </Layout>
+        <AppNavigator />
       </ApplicationProvider>
     </>
   );
