@@ -20,6 +20,7 @@ module.exports = {
     'react/prop-types': ['error', { ignore: ['navigation'] }],
     'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1, maxBOF: 0 }],
     'max-len': 'off',
+    'func-names': 'off',
   },
   globals: {
     fetch: false,

@@ -4,16 +4,16 @@ Mobile client with Expo
 - setup ui
 - setup navigation
 - Setup architecture
-- Setup eslint
-- setup status bar
+  - setup config variables
+  - preload assets, font
+  - setup status bar
+  - use AppLoading
+- setup fieldset joi
 - setup ota
-- setup env variables
-- use AppLoading
-- preload assets, font
 - connect storage to parse SecureStore
 - calendar for events
 - constants for Constants installations push
-- expo-localization
+- languages expo-localization
 - shared element
 - push notifications
 - SafeAreaContext
