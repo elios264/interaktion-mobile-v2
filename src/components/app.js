@@ -8,16 +8,16 @@ import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { AppNavigator } from './navigation.component';
 
 
-import { default as theme } from './custom-theme.json';
-import { default as mapping } from './mapping.json';
+import { default as theme } from '../theme/custom-theme.json';
+import { default as mapping } from '../theme/mapping.json';
 
 export default function App() {
 
   const [fontsLoaded] = useFonts({
-    'osl': require('./assets/fonts/Oswald.ttf'),
-    'osl_b': require('./assets/fonts/Oswald_bold.ttf'),
-    'osl_bi': require('./assets/fonts/Oswald_bold_italic.ttf'),
-    'al': require('./assets/fonts/AbrahamLincoln.ttf'),
+    'osl': require('../../assets/fonts/Oswald.ttf'),
+    'osl_b': require('../../assets/fonts/Oswald_bold.ttf'),
+    'osl_bi': require('../../assets/fonts/Oswald_bold_italic.ttf'),
+    'al': require('../../assets/fonts/AbrahamLincoln.ttf'),
   });
 
   if (!fontsLoaded) {

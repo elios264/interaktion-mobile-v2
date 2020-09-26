@@ -2,15 +2,12 @@
 Mobile client with Expo
 
 - setup ui
-
-- Setup project
-- Setup eslint
 - setup navigation
-- setup splash and icons
+- Setup architecture
+- Setup eslint
 - setup status bar
 - setup ota
 - setup env variables
-- setup userInterfaceStyle, backgroundColor, primaryColor, entryPoint (registerRootComponent), supportsTablet
 - use AppLoading
 - preload assets, font
 - connect storage to parse SecureStore
