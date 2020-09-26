@@ -1,0 +1,6 @@
+{
+  "error.initialize": "Ha ocurrido un error al inicializar el sistema",
+  "error.unknown": "Un error desconocido ha ocurrido: %{error}",
+  "cancel": "Cancelar",
+  "continue": "Continuar"
+}

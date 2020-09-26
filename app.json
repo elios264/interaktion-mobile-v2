@@ -1,12 +1,15 @@
 {
   "expo": {
     "name": "Luxury World Guides",
-    "slug": "luxury-world-guides",
+    "slug": "interaktion-luxury-world-madrid",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
     "primaryColor": "#B8860B",
     "icon": "./assets/images/icon.png",
+    "ios": {
+      "requireFullScreen": true
+    },
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -14,6 +17,11 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "extra": {
+      "apiUrl": "http://localhost/api",
+      "apiId": "interaktion-luxury-world-madrid",
+      "defaultLocale": "es"
+    }
   }
 }
