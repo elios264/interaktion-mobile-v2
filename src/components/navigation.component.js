@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
@@ -12,14 +11,14 @@ enableScreens();
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const HomeNavigator = () => (
-  <Navigator  >
-    <Screen name='Home' component={HomeScreen}/>
-    <Screen name='Details' component={DetailsScreen}/>
+  <Navigator>
+    <Screen name='Home' component={HomeScreen} />
+    <Screen name='Details' component={DetailsScreen} />
   </Navigator>
 );
 
 export const AppNavigator = () => (
-  <NavigationContainer theme={DarkTheme} >
-    <HomeNavigator/>
+  <NavigationContainer theme={DarkTheme}>
+    <HomeNavigator />
   </NavigationContainer>
 );
