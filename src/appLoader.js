@@ -1,14 +1,5 @@
-/* eslint-disable import/first */
-
-// polyfills section
-import { TextDecoder, TextEncoder } from 'text-encoding';
-
-global.TextDecoder = global.TextDecoder || TextDecoder;
-global.TextEncoder = global.TextEncoder || TextEncoder;
-
-// ----------------- polyfills section
-
 import _ from 'lodash';
+import { TextDecoder, TextEncoder } from 'text-encoding';
 import React from 'react';
 import { registerRootComponent } from 'expo';
 import Constants from 'expo-constants';
@@ -26,6 +17,10 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import * as theme from 'theme';
 import translations from 'translations';
+
+// polyfills
+global.TextDecoder = global.TextDecoder || TextDecoder;
+global.TextEncoder = global.TextEncoder || TextEncoder;
 
 // pre import initialization
 enableScreens();

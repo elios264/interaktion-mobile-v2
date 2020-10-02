@@ -2,9 +2,6 @@
 Mobile client with Expo
 
 
-Setup :
-- fieldset joi
-
 Ideas:
 - ViewPager between contents
 - SafeAreaContext -> navigation -> test on notch ios.
@@ -15,3 +12,11 @@ Ideas:
 TODO:
 - Main app
 - Push notifications
+
+
+Modules:
+
+- Login
+- Menu
+- Listing
+- Details

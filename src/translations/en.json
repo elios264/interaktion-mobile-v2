@@ -1,6 +1,17 @@
 {
   "error.initialize": "An error has ocurred while initializing the system",
   "error.unknown": "An unknown error has ocurred: %{error}",
+  "error.initialData": "A problem ocurred while downloading the contents from the server",
+  "error.login": "Could not login",
+  "error.logout": "Could not logout",
+  "error.resetPassword": "Could not send the email to reset your password",
+  "error.updateProfile": "Could not your profile",
+  "error.signup": "Could not sign you up",
+
+  "success.resetPassword": "A password reset email has been sent to the provided email.",
+  "success.signup": "Account successfully created, check your email to set your password",
+  "success.updateProfile": "You profile has been successfully updated",
+
   "cancel": "Cancel",
   "continue": "Continue"
 }

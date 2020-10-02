@@ -19,11 +19,13 @@ export const handleError = (fn, errorMessage = '', { rethrow = false, silent = f
     }
 
     if (!silent) {
-      await dispatch(showDialog(errorMessage, exceptionMessage));
+      showDialog(errorMessage, exceptionMessage);
     }
 
     if (rethrow) {
       throw new Error(errorMessage ? `${errorMessage}\n${exceptionMessage}` : exceptionMessage);
     }
+
+    return undefined;
   }
 };

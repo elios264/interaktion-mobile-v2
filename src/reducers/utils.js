@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export const cleanWhenNoUser = (reducer) => (state, action) => reducer((action.type === 'SET_USER' && !action.user) ? undefined : state, action);
+export const cleanWhenNoUser = (reducer) => (state, action) => reducer((action.type === 'SET_USER' && (!action.user || action.user.isAnonymous)) ? undefined : state, action);
 
 export const createCRUDObjectReducer = (prefix, { key = 'id', filter = _.identity, merge = false } = {}) => (state = {}, action) => {
   switch (action.type) {

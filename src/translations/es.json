@@ -1,6 +1,17 @@
 {
   "error.initialize": "Ha ocurrido un error al inicializar el sistema",
   "error.unknown": "Un error desconocido ha ocurrido: %{error}",
+  "error.initialData": "Ha ocurrido un problema al descargar los contenidos del servidor",
+  "error.login": "No se pudo iniciar sesión",
+  "error.logout": "No se pudo cerrar sesión",
+  "error.resetPassword": "No se pudo enviar el correo de restablecimiento de contraseña",
+  "error.updateProfile": "No se pudo actualizar su perfil",
+  "error.signup": "No se pudo crear su cuenta",
+
+  "success.resetPassword": "Se ha enviado un correo para restablecer su contraseña.",
+  "success.signup": "Cuenta creada con éxito, cheque su correo para establecer su contraseña",
+  "success.updateProfile": "Su perfil se ha actualizado con éxito",
+
   "cancel": "Cancelar",
   "continue": "Continuar"
 }

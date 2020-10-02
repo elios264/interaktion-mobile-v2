@@ -4,12 +4,12 @@ import { userInfoReducer } from './userInfo';
 import { appInfoReducer } from './appInfo';
 
 const objectsReducer = combineReducers({
-  contents: createCRUDObjectReducer('Content'),
-  sections: createCRUDObjectReducer('Section'),
+  contents: createCRUDObjectReducer('CONTENTS'),
+  sections: createCRUDObjectReducer('SECTIONS'),
 });
 
 export const rootReducer = combineReducers({
   appInfo: appInfoReducer,
+  userInfo: userInfoReducer,
   objects: cleanWhenNoUser(objectsReducer),
-  userInfo: cleanWhenNoUser(userInfoReducer),
 });
