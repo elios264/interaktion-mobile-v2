@@ -1,3 +1,13 @@
+/* eslint-disable import/first */
+
+// polyfills section
+import { TextDecoder, TextEncoder } from 'text-encoding';
+
+global.TextDecoder = global.TextDecoder || TextDecoder;
+global.TextEncoder = global.TextEncoder || TextEncoder;
+
+// ----------------- polyfills section
+
 import _ from 'lodash';
 import React from 'react';
 import { registerRootComponent } from 'expo';
