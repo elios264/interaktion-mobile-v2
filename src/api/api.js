@@ -39,6 +39,7 @@ export class Api {
 
     const user = await Parse.User.logIn(email, password);
     this.store.dispatch({ type: 'SET_USER', user });
+    Parse.Cloud.run('set-last-activity-now');
     return user;
   }
 
@@ -56,13 +57,16 @@ export class Api {
     if (!parseUser) {
       return user;
     }
-
+    Parse.Cloud.run('set-last-activity-now');
     await user.save();
     this.store.dispatch({ type: 'SET_USER', user });
     return user;
   }
 
-  runCloudCode = (name, data) => Parse.Cloud.run(name, data)
+  runCloudCode = (name, data) => {
+    Parse.Cloud.run('set-last-activity-now');
+    return Parse.Cloud.run(name, data);
+  }
 
   signup = ({ name, email }) => Parse.Cloud.run('create-user', { name, email }).then(({ success }) => success)
 

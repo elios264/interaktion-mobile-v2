@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import Joi from 'joi';
 import PropTypes from 'prop-types';
+import * as Localization from 'expo-localization';
 import { createSelector } from 'reselect';
 import {
   useCallback, useMemo, useState, useReducer, useRef, useEffect,
@@ -8,6 +9,49 @@ import {
 
 import { delay } from 'controls/utils';
 import { useEffectSkipMount, useIsMounted } from './misc';
+
+const messages = {
+
+  es: {
+    'root': 'valor',
+    'string.alphanum': '{{#label}} solo debe contener valores alfanuméricos',
+    'string.base': '{{#label}} debe ser una cadena de texto',
+    'string.email': '{{#label}} debe ser un correo valido',
+    'string.empty': '{{#label}} no puede estar vacío(a)',
+    'string.length': '{{#label}} debe de tener {{#limit}} caracteres de longitud',
+    'string.max': '{{#label}} debe tener o ser menor de {{#limit}} caracteres',
+    'string.min': '{{#label}} debe de ser al menos {{#limit}} caracteres',
+
+    'number.base': '{{#label}} debe ser un número',
+    'number.greater': '{{#label}} debe ser mayor a {{#limit}}',
+    'number.integer': '{{#label}} debe ser un entero',
+    'number.less': '{{#label}} debe ser menor a {{#limit}}',
+    'number.max': '{{#label}} debe ser menor o igual a {{#limit}}',
+    'number.min': '{{#label}} debe ser mayor o igual a {{#limit}}',
+    'number.positive': '{{#label}} debe ser un numero positivo',
+
+    'date.base': '{{#label}} debe ser una fecha valida',
+    'date.greater': '{{#label}} debe ser después de {{:#limit}}',
+    'date.less': '{{#label}} debe ser antes de {{:#limit}}',
+    'date.max': '{{#label}} debe ser antes o igual a {{:#limit}}',
+    'date.min': '{{#label}} debe ser después o igual a {{:#limit}}',
+
+    'boolean.base': '{{#label}} debe ser un booleano',
+
+    'array.base': '{{#label}} debe ser una lista',
+    'array.excludes': '{{#label}} contiene un valor no permitido',
+    'array.includes': '{{#label}} no tiene ninguno de los valores permitidos',
+    'array.length': '{{#label}} debe contener {{#limit}} elementos',
+    'array.max': '{{#label}} debe contener como máximo {{#limit}} elementos',
+    'array.min': '{{#label}} debe contener al menos {{#limit}} elementos',
+    'array.unique': '{{#label}} contiene valores duplicados',
+
+    'any.invalid': '{{#label}} contiene un valor invalido',
+    'any.required': '{{#label}} es requerido(a)',
+    'any.unknown': '{{#label}} no esta permitido(a)',
+  },
+
+};
 
 const defaultClone = (source) => _.cloneDeep(source);
 
@@ -91,8 +135,9 @@ export const useFieldset = ({
     /* eslint-enable no-await-in-loop */
 
     const { error, value: validatedSource } = Joi.object(schema).validate(
-      source.attributes ? _.pick(source, _.keys(schema)) : source,
-      { abortEarly: false, allowUnknown: true, errors: { label: false } },
+      source.attributes ? _.pick(source, _.keys(schema)) : source, {
+        abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: '' }, language: _(Localization.locale).split('-').head() },
+      },
     );
 
     if (error) {

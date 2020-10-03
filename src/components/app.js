@@ -9,7 +9,7 @@ import { T } from '@shipt/react-native-tachyons';
 import logo from 'assets/images/logo.png';
 
 import { authModes } from 'types';
-import { Login } from './authentication';
+import { Login, Signup } from './authentication';
 import { Home } from './home';
 import { Details } from './details';
 
@@ -25,7 +25,8 @@ const mainScreenOptions = {
 
 const AuthStack = () => (
   <Auth.Navigator headerMode='none'>
-    <Auth.Screen name='Login' component={Login} />
+    <Auth.Screen name='login' component={Login} />
+    <Auth.Screen name='signup' component={Signup} />
   </Auth.Navigator>
 );
 const MainStack = () => (

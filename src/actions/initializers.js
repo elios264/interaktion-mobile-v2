@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
@@ -26,7 +28,10 @@ export const downloadInitialData = () => handleError(async (dispatch, getState, 
   dispatch({ type: 'SET_REFRESHING', refreshing: true });
 
   try {
-    const { features, sections = [], contents = [] } = await api.runCloudCode('get-client-data');
+
+    const { features, sections = [], contents = [] } = await api.runCloudCode('get-client-data', {
+      language: _(Localization.locale).split('-').head(),
+    });
 
     dispatch({ type: 'SET_CONFIG', config: features });
     dispatch({ type: 'CONTENTS_FETCHED', objects: contents });

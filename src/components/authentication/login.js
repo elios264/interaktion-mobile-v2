@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { View, Image, TouchableWithoutFeedback } from 'react-native';
+import { useLinkProps } from '@react-navigation/native';
 import { T } from '@shipt/react-native-tachyons';
 import { useSelector } from 'react-redux';
 import i18n from 'i18n-js';
@@ -17,11 +18,13 @@ import logo from 'assets/images/logo.png';
 
 const loginTemplate = { email: '', password: '' };
 const loginSchema = {
-  email: Joi.string().email({ tlds: { allow: false } }).max(50).required().label(i18n.t('email')),
+  email: Joi.string().lowercase().email({ tlds: { allow: false } }).max(50).required().label(i18n.t('email')),
   password: Joi.string().required().label(i18n.t('password')).max(30),
 };
 
 export const Login = () => {
+  const signUpLinkProps = useLinkProps({ to: '/auth/signup' });
+
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const { authMode } = useSelector((state) => state.appInfo.config);
 
@@ -53,6 +56,9 @@ export const Login = () => {
             placeholder={i18n.t('email')}
             accessoryRight={(props) => <Icon {...props} name='person' />}
             value={email.value}
+            autoCapitalize='none'
+            keyboardType='email-address'
+            textContentType='emailAddress'
             onChangeText={email.onChange}
             caption={email.errored && email.message}
           />
@@ -60,6 +66,7 @@ export const Login = () => {
             style={T('mt5')}
             status={password.errored ? 'danger' : 'control'}
             placeholder={i18n.t('password')}
+            textContentType='password'
             accessoryRight={renderSecureEntryIcon}
             secureTextEntry={secureTextEntry}
             value={password.value}
@@ -85,7 +92,7 @@ export const Login = () => {
             </Button>
           </View>
         )}
-        <Button style={T('mv4')} appearance='ghost' status='control'>
+        <Button style={T('mv4')} appearance='ghost' status='control' {...signUpLinkProps}>
           {i18n.t('login.signUp')}
         </Button>
       </Layout>

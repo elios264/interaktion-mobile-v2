@@ -16,6 +16,11 @@
   "continue": "Continue",
   "email": "Email",
   "password": "Password",
+  "name": "Name",
+
+  "signup.signup": "Sign up",
+  "signup.signIn": "Already have an account? Sign in",
+  "signup.signupAccount": "Create you account",
 
   "login.signInAccount": "Sign in to your account",
   "login.forgotPassword": "Forgot your password?",
