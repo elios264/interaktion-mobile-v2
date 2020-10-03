@@ -19,7 +19,7 @@
       "**/*"
     ],
     "extra": {
-      "apiUrl": "http://localhost/api",
+      "apiUrl": "https://lwm.azurewebsites.net/api",
       "apiId": "interaktion-luxury-world-madrid",
       "defaultLocale": "es"
     }
