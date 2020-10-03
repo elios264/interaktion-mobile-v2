@@ -4,19 +4,22 @@
   "error.initialData": "A problem ocurred while downloading the contents from the server",
   "error.login": "Could not login",
   "error.logout": "Could not logout",
-  "error.resetPassword": "Could not send the email to reset your password",
+  "error.requestPasswordReset": "Could not send the email to reset your password",
   "error.updateProfile": "Could not your profile",
   "error.signup": "Could not sign you up",
+  "error.resetPassword": "Could not reset your password",
 
-  "success.resetPassword": "A password reset email has been sent to the provided email.",
+  "success.requestPasswordReset": "A password reset email has been sent to the provided email.",
   "success.signup": "Account successfully created, check your email to set your password",
   "success.updateProfile": "You profile has been successfully updated",
+  "success.resetPassword": "You password has been successfully set",
 
   "cancel": "Cancel",
   "continue": "Continue",
   "email": "Email",
   "password": "Password",
   "name": "Name",
+  "submit": "Submit",
 
   "signup.signup": "Sign up",
   "signup.signIn": "Already have an account? Sign in",
@@ -27,5 +30,12 @@
   "login.accessAnonymously": "Access Anonymously",
   "login.signIn": "Sign in",
   "login.or": "Or",
-  "login.signUp": "Don't have an account? Sign up"
+  "login.signUp": "Don't have an account? Sign up",
+
+  "reset.passwordRequirements": "Password needs to have a minimum length of 8, at least one letter and one number.",
+  "reset.resetPassword": "Set your new password",
+  "reset.backToSignIn": "Here by mistake? Sign in",
+
+  "forgot.resetPassword": "Reset your password",
+  "forgot.backToSignIn": "Remember now? Sign in"
 }

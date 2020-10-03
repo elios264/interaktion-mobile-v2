@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Joi from 'joi';
 import PropTypes from 'prop-types';
-import * as Localization from 'expo-localization';
+import i18n from 'i18n-js';
 import { createSelector } from 'reselect';
 import {
   useCallback, useMemo, useState, useReducer, useRef, useEffect,
@@ -136,7 +136,7 @@ export const useFieldset = ({
 
     const { error, value: validatedSource } = Joi.object(schema).validate(
       source.attributes ? _.pick(source, _.keys(schema)) : source, {
-        abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: '' }, language: _(Localization.locale).split('-').head() },
+        abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: '' }, language: i18n.locale },
       },
     );
 

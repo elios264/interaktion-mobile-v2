@@ -1,6 +1,5 @@
-import _ from 'lodash';
-import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
+import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 
@@ -20,6 +19,7 @@ export const initialize = (store) => handleError(async (dispatch, getState, { ap
 
   } finally {
     dispatch({ type: 'SET_INITIALIZING', running: false });
+    SplashScreen.hideAsync();
   }
 }, i18n.t('error.initialize'));
 
@@ -30,7 +30,7 @@ export const downloadInitialData = () => handleError(async (dispatch, getState, 
   try {
 
     const { features, sections = [], contents = [] } = await api.runCloudCode('get-client-data', {
-      language: _(Localization.locale).split('-').head(),
+      language: i18n.locale,
     });
 
     dispatch({ type: 'SET_CONFIG', config: features });

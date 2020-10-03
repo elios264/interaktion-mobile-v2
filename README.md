@@ -8,7 +8,6 @@ Ideas:
 - shared element
 - setup ota
 - calendar for events
-- failing on initial data causes splash screen to be there forever
 
 TODO:
 - Main app

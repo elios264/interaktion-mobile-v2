@@ -24,6 +24,7 @@ const loginSchema = {
 
 export const Login = () => {
   const signUpLinkProps = useLinkProps({ to: '/auth/signup' });
+  const forgotLinkProps = useLinkProps({ to: '/auth/forgot' });
 
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const { authMode } = useSelector((state) => state.appInfo.config);
@@ -74,7 +75,7 @@ export const Login = () => {
             caption={password.errored && password.message}
           />
           <View style={T('flx-row jcfe')}>
-            <Button style={T('ph0')} appearance='ghost' status='control'>
+            <Button style={T('ph0')} appearance='ghost' status='control' {...forgotLinkProps}>
               {i18n.t('login.forgotPassword')}
             </Button>
           </View>

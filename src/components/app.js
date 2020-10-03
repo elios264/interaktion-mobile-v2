@@ -1,15 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector } from 'react-redux';
-import { AppLoading } from 'expo';
 import { Image, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { T } from '@shipt/react-native-tachyons';
 
 import logo from 'assets/images/logo.png';
-
 import { authModes } from 'types';
-import { Login, Signup } from './authentication';
+import {
+  Login, Signup, Reset, Forgot,
+} from './authentication';
 import { Home } from './home';
 import { Details } from './details';
 
@@ -27,6 +27,8 @@ const AuthStack = () => (
   <Auth.Navigator headerMode='none'>
     <Auth.Screen name='login' component={Login} />
     <Auth.Screen name='signup' component={Signup} />
+    <Auth.Screen name='reset' component={Reset} />
+    <Auth.Screen name='forgot' component={Forgot} />
   </Auth.Navigator>
 );
 const MainStack = () => (
@@ -42,7 +44,7 @@ export const App = () => {
   const { authMode } = useSelector((state) => state.appInfo.config);
 
   if (initializing) {
-    return <AppLoading />;
+    return null;
   }
 
   const shouldPresentAuthStack = user.isAnonymous && (

@@ -1,6 +1,9 @@
+import _ from 'lodash';
+import i18n from 'i18n-js';
 import Parse from 'parse/react-native';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-community/async-storage';
+import queryString from 'query-string';
 
 const anonymousUser = Object.freeze({ isAnonymous: true });
 
@@ -25,7 +28,7 @@ export class Api {
 
     if (user) {
       this.store.dispatch({ type: 'SET_USER', user });
-      Parse.Cloud.run('set-last-activity-now');
+      this._updateLastActivity();
     }
 
     return user;
@@ -39,7 +42,7 @@ export class Api {
 
     const user = await Parse.User.logIn(email, password);
     this.store.dispatch({ type: 'SET_USER', user });
-    Parse.Cloud.run('set-last-activity-now');
+    this._updateLastActivity();
     return user;
   }
 
@@ -57,18 +60,39 @@ export class Api {
     if (!parseUser) {
       return user;
     }
-    Parse.Cloud.run('set-last-activity-now');
-    await user.save();
+    await user.save().then(() => this._updateLastActivity());
     this.store.dispatch({ type: 'SET_USER', user });
     return user;
   }
 
   runCloudCode = (name, data) => {
-    Parse.Cloud.run('set-last-activity-now');
+    this._updateLastActivity();
     return Parse.Cloud.run(name, data);
   }
 
-  signup = ({ name, email }) => Parse.Cloud.run('create-user', { name, email }).then(({ success }) => success)
+  resetPassword = async ({ token, username, password }) => {
+
+    const response = await fetch(`${Constants.manifest.extra.apiUrl}/apps/${Constants.manifest.extra.apiId}/request_password_reset`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: queryString.stringify({ new_password: password, token, username }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Server returned status ${response.status}`);
+    }
+    const { url, query: { error } } = queryString.parseUrl(response.url);
+
+    if (error) {
+      throw new Error(error);
+    }
+
+    return _.endsWith(url, 'reset-success');
+  }
+
+  signup = ({ name, email }) => Parse.Cloud.run('create-user', { name, email, language: i18n.locale }).then(({ success }) => success)
 
   requestPasswordReset = (email) => Parse.User.requestPasswordReset(email);
+
+  _updateLastActivity = () => Parse.Cloud.run('set-last-activity-now', { language: i18n.locale });
 }

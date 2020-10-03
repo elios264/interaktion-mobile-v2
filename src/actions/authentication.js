@@ -21,8 +21,14 @@ export const signup = ({ name, email }) => handleError(async (dispatch, getState
   return true;
 }, i18n.t('error.signup'));
 
-export const resetPassword = ({ email }) => handleError(async (dispatch, getState, { api }) => {
+export const requestPasswordReset = ({ email }) => handleError(async (dispatch, getState, { api }) => {
   await api.requestPasswordReset(email);
+  showDialog(i18n.t('success.requestPasswordReset'));
+  return true;
+}, i18n.t('error.requestPasswordReset'));
+
+export const resetPassword = ({ token, username }, { password }) => handleError(async (dispatch, getState, { api }) => {
+  await api.resetPassword({ token, username, password });
   showDialog(i18n.t('success.resetPassword'));
   return true;
 }, i18n.t('error.resetPassword'));
