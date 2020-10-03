@@ -5,6 +5,22 @@ import { Asset } from 'expo-asset';
 import { fonts } from 'theme';
 import { handleError } from './utils';
 
+export const initialize = (store) => handleError(async (dispatch, getState, { api }) => {
+  dispatch({ type: 'SET_INITIALIZING', running: true });
+
+  try {
+
+    await Promise.all([
+      api.initialize(store).then(() => dispatch(downloadInitialData())),
+      Font.loadAsync(fonts),
+      Asset.loadAsync(require('assets/images/logo.png')),
+    ]);
+
+  } finally {
+    dispatch({ type: 'SET_INITIALIZING', running: false });
+  }
+}, i18n.t('error.initialize'));
+
 export const downloadInitialData = () => handleError(async (dispatch, getState, { api }) => {
 
   dispatch({ type: 'SET_REFRESHING', refreshing: true });
@@ -21,19 +37,3 @@ export const downloadInitialData = () => handleError(async (dispatch, getState, 
   }
 
 }, i18n.t('error.initialData'));
-
-export const initialize = (store) => handleError(async (dispatch, getState, { api }) => {
-  dispatch({ type: 'SET_INITIALIZING', running: true });
-
-  try {
-
-    await Promise.all([
-      api.initialize(store).then(() => dispatch(downloadInitialData())),
-      Font.loadAsync(fonts),
-      Asset.loadAsync(require('assets/images/logo.png')),
-    ]);
-
-  } finally {
-    dispatch({ type: 'SET_INITIALIZING', running: false });
-  }
-}, i18n.t('error.initialize'));

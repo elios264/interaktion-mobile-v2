@@ -13,5 +13,14 @@
   "success.updateProfile": "You profile has been successfully updated",
 
   "cancel": "Cancel",
-  "continue": "Continue"
+  "continue": "Continue",
+  "email": "Email",
+  "password": "Password",
+
+  "login.signInAccount": "Sign in to your account",
+  "login.forgotPassword": "Forgot your password?",
+  "login.accessAnonymously": "Access Anonymously",
+  "login.signIn": "Sign in",
+  "login.or": "Or",
+  "login.signUp": "Don't have an account? Sign up"
 }

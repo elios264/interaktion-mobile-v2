@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: 'airbnb',
+  extends: ['airbnb', 'airbnb/hooks'],
   plugins: [
     'react',
     'react-hooks',
@@ -26,6 +26,8 @@ module.exports = {
     'func-names': 'off',
     'no-param-reassign': 'off',
     'quote-props': ['error', 'consistent-as-needed'],
+    'no-use-before-define': ['error', { functions: true, classes: true, variables: false }],
+    'newline-per-chained-call': 'off',
   },
   globals: {
     fetch: false,

@@ -13,5 +13,14 @@
   "success.updateProfile": "Su perfil se ha actualizado con éxito",
 
   "cancel": "Cancelar",
-  "continue": "Continuar"
+  "continue": "Continuar",
+  "email": "Correo",
+  "password": "Contraseña",
+
+  "login.signInAccount": "Inicie sesión con su cuenta",
+  "login.forgotPassword": "¿Olvidó su contraseña?",
+  "login.accessAnonymously": "Acceder anónimamente",
+  "login.signIn": "Iniciar sesión",
+  "login.or": "Ó",
+  "login.signUp": "¿No tiene una cuenta? Regístrese"
 }

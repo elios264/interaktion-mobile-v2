@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector } from 'react-redux';
 import { AppLoading } from 'expo';
-import { Image } from 'react-native';
+import { Image, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { T } from '@shipt/react-native-tachyons';
 
@@ -51,7 +51,7 @@ export const App = () => {
 
   return (
     <>
-      <StatusBar style='inverted' />
+      <StatusBar style={Platform.OS === 'android' ? 'auto' : 'inverted'} />
       <Root.Navigator headerMode='none'>
         {shouldPresentAuthStack
           ? <Root.Screen name='auth' component={AuthStack} />
