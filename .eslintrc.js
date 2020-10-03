@@ -22,7 +22,6 @@ module.exports = {
     'react/style-prop-object': 'off',
     'import/prefer-default-export': 'off',
     'react/prop-types': ['error', { ignore: ['navigation'] }],
-    'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1, maxBOF: 0 }],
     'max-len': 'off',
     'func-names': 'off',
     'no-param-reassign': 'off',

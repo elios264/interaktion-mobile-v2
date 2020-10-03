@@ -5,7 +5,7 @@ import { T } from '@shipt/react-native-tachyons';
 
 import logo from 'assets/images/logo.png';
 
-export const HomeScreen = ({ navigation }) => {
+export const Home = ({ navigation }) => {
 
   const navigateDetails = () => {
     navigation.navigate('Details');

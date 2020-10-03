@@ -5,7 +5,6 @@ import { Asset } from 'expo-asset';
 import { fonts } from 'theme';
 import { handleError } from './utils';
 
-
 export const downloadInitialData = () => handleError(async (dispatch, getState, { api }) => {
 
   dispatch({ type: 'SET_REFRESHING', refreshing: true });
@@ -22,7 +21,6 @@ export const downloadInitialData = () => handleError(async (dispatch, getState, 
   }
 
 }, i18n.t('error.initialData'));
-
 
 export const initialize = (store) => handleError(async (dispatch, getState, { api }) => {
   dispatch({ type: 'SET_INITIALIZING', running: true });

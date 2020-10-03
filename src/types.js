@@ -1,1 +1,1 @@
-export const authMode = Object.freeze({ private: 'private', mixed: 'mixed', public: 'public' });
+export const authModes = Object.freeze({ private: 'private', mixed: 'mixed', public: 'public' });

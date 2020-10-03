@@ -115,9 +115,9 @@ export const navigation = {
   colors: {
     primary: '#B8860B',
     background: 'rgb(1, 1, 1)',
-    card: 'rgb(18, 18, 18)',
+    card: 'rgb(1, 1, 1)',
     text: 'rgb(229, 229, 231)',
-    border: 'rgb(39, 39, 41)',
+    border: '#B8860B',
     notification: 'rgb(255, 69, 58)',
   },
 };

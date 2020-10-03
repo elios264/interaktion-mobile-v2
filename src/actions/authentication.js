@@ -2,6 +2,8 @@ import i18n from 'i18n-js';
 import { handleError, showDialog } from './utils';
 import { downloadInitialData } from './initializers';
 
+export const accessAsAnonymous = ({ type: 'SET_ACCESS_AS_ANONYMOUS', accessAsAnonymous: true });
+
 export const login = (loginData) => handleError(async (dispatch, getState, { api }) => {
   await api.login(loginData);
   dispatch(downloadInitialData());

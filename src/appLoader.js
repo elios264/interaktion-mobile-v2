@@ -12,7 +12,6 @@ import { Provider } from 'react-redux';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { enableScreens } from 'react-native-screens';
 import { NavigationContainer } from '@react-navigation/native';
 
 import * as theme from 'theme';
@@ -23,7 +22,6 @@ global.TextDecoder = global.TextDecoder || TextDecoder;
 global.TextEncoder = global.TextEncoder || TextEncoder;
 
 // pre import initialization
-enableScreens();
 build({ rem: theme.rem, styles: theme.styles });
 i18n.defaultSeparator = '|';
 i18n.defaultLocale = Constants.manifest.extra.defaultLocale;

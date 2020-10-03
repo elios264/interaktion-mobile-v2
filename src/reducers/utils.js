@@ -20,7 +20,10 @@ export const createCRUDObjectReducer = (prefix, { key = 'id', filter = _.identit
           return { ...fst, ...snd };
         }), filter);
     case `${prefix}_REMOVED`:
-      return _(action.objects).map(key).reduce((acc, cur) => (delete acc[cur], acc), { ...state });
+      return _(action.objects).map(key).reduce((acc, cur) => {
+        delete acc[cur];
+        return acc;
+      }, { ...state });
     default: return state;
   }
 };
