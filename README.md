@@ -16,7 +16,5 @@ TODO:
 
 Modules:
 
-- Login
-- Menu
 - Listing
 - Details

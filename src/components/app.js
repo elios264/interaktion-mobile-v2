@@ -1,26 +1,44 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Image, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { T } from '@shipt/react-native-tachyons';
+import { Icon, Button } from '@ui-kitten/components';
 
 import logo from 'assets/images/logo.png';
+import { logout } from 'actions/authentication';
+
 import { authModes } from 'types';
 import {
   Login, Signup, Reset, Forgot,
 } from './authentication';
 import { Home } from './home';
-import { Details } from './details';
 
 const Root = createStackNavigator();
 const Auth = createStackNavigator();
 const Main = createStackNavigator();
 
+const LogoutComponent = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <Button
+      appearance='ghost'
+      size='large'
+      status='basic'
+      accessoryLeft={(props) => <Icon name='settings-outline' {...props} />}
+      onPress={() => dispatch(logout())}
+    />
+  );
+
+};
+
 const mainScreenOptions = {
   headerStyle: T('bb', { height: 100 }),
   headerTitleAlign: 'center',
   headerTitle: () => <Image source={logo} style={T('w8 hp85 rm-contain')} />,
+  headerRight: () => <LogoutComponent />,
 };
 
 const AuthStack = () => (
@@ -31,10 +49,10 @@ const AuthStack = () => (
     <Auth.Screen name='forgot' component={Forgot} />
   </Auth.Navigator>
 );
+
 const MainStack = () => (
   <Main.Navigator screenOptions={mainScreenOptions}>
-    <Main.Screen name='Home' component={Home} />
-    <Main.Screen name='Details' component={Details} />
+    <Main.Screen name='home' component={Home} />
   </Main.Navigator>
 );
 

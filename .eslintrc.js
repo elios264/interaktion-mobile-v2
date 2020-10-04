@@ -34,6 +34,11 @@ module.exports = {
       allowAfterSuper: false,
       enforceInMethodNames: true,
     }],
+    'react/forbid-prop-types': ['error', {
+      forbid: ['any', 'array'],
+      checkContextTypes: true,
+      checkChildContextTypes: true,
+    }],
   },
   globals: {
     fetch: false,
