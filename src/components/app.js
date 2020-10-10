@@ -16,6 +16,7 @@ import {
 } from './authentication';
 import { Home } from './home';
 import { Section } from './section';
+import { Content } from './content';
 
 const Root = createStackNavigator();
 const Auth = createStackNavigator();
@@ -59,6 +60,7 @@ const MainStack = () => (
   <Main.Navigator screenOptions={mainScreenOptions}>
     <Main.Screen name='home' component={Home} options={homeOptions} />
     <Main.Screen name='section' component={Section} />
+    <Main.Screen name='content' component={Content} />
   </Main.Navigator>
 );
 

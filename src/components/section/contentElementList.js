@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { Text, useTheme } from '@ui-kitten/components';
 import { TouchableOpacity, View } from 'react-native';
 import { T } from '@shipt/react-native-tachyons';
@@ -8,12 +8,16 @@ import { AutoHeightImage } from 'controls';
 
 const itemHeight = 170;
 
-export const ContentElementList = ({ content: { title, image, description } }) => {
+export const ContentElementList = ({ content, onPress }) => {
+  const { title, image, description } = content;
+
   const theme = useTheme();
   const thumbImage = useMemo(() => ({ ...image, uri: image.thumb }), [image]);
 
+  const onPressContent = useCallback(() => onPress(content), [content, onPress]);
+
   return (
-    <TouchableOpacity style={T('mh4', { height: itemHeight })} activeOpacity={0.8}>
+    <TouchableOpacity style={T('mh4', { height: itemHeight })} activeOpacity={0.8} onPress={onPressContent}>
       <View style={T('flx-row flx-i aic')}>
         <AutoHeightImage style={T('rm-contain w8', { maxHeight: itemHeight })} source={thumbImage} />
         <View style={T('flx-i ml3')}>
@@ -34,6 +38,7 @@ ContentElementList.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.object.isRequired,
   }).isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 ContentElementList.itemHeight = itemHeight;

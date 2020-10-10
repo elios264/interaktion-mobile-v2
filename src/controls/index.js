@@ -5,3 +5,4 @@ export * from './keyboardAvoidingView';
 export * from './awaitables';
 export * from './loadingButton';
 export * from './autoHeightImage';
+export * from './richTextRenderer';

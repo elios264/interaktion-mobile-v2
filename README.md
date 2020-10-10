@@ -11,6 +11,8 @@ Ideas:
 
 TODO:
 - Push notifications
+- back title too large overflows
 
 Modules:
 - Details
+- Account/sign-out

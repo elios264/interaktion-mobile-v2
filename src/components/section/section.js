@@ -48,6 +48,7 @@ export const Section = ({ route, navigation }) => {
     .value(),
   [contents, sectionId, search]);
 
+  const navigateToContent = useCallback(({ id }) => navigation.navigate('content', { contentId: id }), [navigation]);
   const toggleSearch = useCallback(() => {
     setSearching(!searching);
     setSearch('');
@@ -56,12 +57,15 @@ export const Section = ({ route, navigation }) => {
 
   const contentComponent = useMemo(() => itemViewer[section.mobileView] || ContentElementList, [section.mobileView]);
   const getItemLayout = useCallback((data, index) => ({ length: contentComponent.itemHeight, offset: contentComponent.itemHeight * index, index }), [contentComponent]);
-  const itemRenderer = useCallback(({ item, index }) => React.createElement(contentComponent, { content: item, index }), [contentComponent]);
+  const itemRenderer = useCallback(({ item, index }) => React.createElement(contentComponent, { content: item, index, onPress: navigateToContent }), [contentComponent, navigateToContent]);
   const headerRenderer = useCallback(() => (section ? <ContentHeader section={section} searching={searching} onSearchChange={setSearch} /> : null), [section, searching]);
 
   useLayoutEffect(() => {
-    navigation.setOptions({ headerRight: () => <SearchButton onToggleSearch={toggleSearch} searching={searching} /> });
-  }, [toggleSearch, navigation, searching]);
+    navigation.setOptions({
+      headerRight: () => <SearchButton onToggleSearch={toggleSearch} searching={searching} />,
+      title: section.title,
+    });
+  }, [toggleSearch, navigation, searching, section.title]);
 
   return (
     <Layout style={T('flx-i')}>
