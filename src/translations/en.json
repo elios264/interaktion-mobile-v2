@@ -20,6 +20,7 @@
   "password": "Password",
   "name": "Name",
   "submit": "Submit",
+  "home": "Home",
 
   "signup.signup": "Sign up",
   "signup.signIn": "Already have an account? Sign in",
@@ -37,5 +38,7 @@
   "reset.backToSignIn": "Here by mistake? Sign in",
 
   "forgot.resetPassword": "Reset your password",
-  "forgot.backToSignIn": "Remember now? Sign in"
+  "forgot.backToSignIn": "Remember now? Sign in",
+
+  "section.empty": "This section is empty"
 }

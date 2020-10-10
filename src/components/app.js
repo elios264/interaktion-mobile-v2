@@ -5,6 +5,7 @@ import { Image, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { T } from '@shipt/react-native-tachyons';
 import { Icon, Button } from '@ui-kitten/components';
+import i18n from 'i18n-js';
 
 import logo from 'assets/images/logo.png';
 import { logout } from 'actions/authentication';
@@ -14,6 +15,7 @@ import {
   Login, Signup, Reset, Forgot,
 } from './authentication';
 import { Home } from './home';
+import { Section } from './section';
 
 const Root = createStackNavigator();
 const Auth = createStackNavigator();
@@ -38,6 +40,9 @@ const mainScreenOptions = {
   headerStyle: T('bb', { height: 100 }),
   headerTitleAlign: 'center',
   headerTitle: () => <Image source={logo} style={T('w8 hp85 rm-contain')} />,
+};
+const homeOptions = {
+  title: i18n.t('home'),
   headerRight: () => <LogoutComponent />,
 };
 
@@ -52,7 +57,8 @@ const AuthStack = () => (
 
 const MainStack = () => (
   <Main.Navigator screenOptions={mainScreenOptions}>
-    <Main.Screen name='home' component={Home} />
+    <Main.Screen name='home' component={Home} options={homeOptions} />
+    <Main.Screen name='section' component={Section} />
   </Main.Navigator>
 );
 

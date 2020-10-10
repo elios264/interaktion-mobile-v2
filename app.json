@@ -23,7 +23,7 @@
     "extra": {
       "apiUrl": "https://lwm.azurewebsites.net/api",
       "apiId": "interaktion-luxury-world-madrid",
-      "defaultLocale": "es"
+      "defaultLocale": "en"
     }
   }
 }

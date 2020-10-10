@@ -4,3 +4,4 @@ export { utils };
 export * from './keyboardAvoidingView';
 export * from './awaitables';
 export * from './loadingButton';
+export * from './autoHeightImage';

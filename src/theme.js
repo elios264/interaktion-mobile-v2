@@ -97,16 +97,25 @@ export const colors = {
 
 export const mapping = {
   strict: {
-    'text-font-family': 'osl',
+    'text-font-family': 'ff_2',
 
-    'text-heading-1-font-family': 'osl_b',
-    'text-heading-2-font-family': 'osl_b',
-    'text-heading-3-font-family': 'osl_b',
-    'text-heading-4-font-family': 'osl_b',
-    'text-heading-5-font-family': 'osl_b',
-    'text-heading-6-font-family': 'osl_b',
+    'text-heading-1-font-family': 'ff_1',
+    'text-heading-2-font-family': 'ff_2b',
+    'text-heading-3-font-family': 'ff_2b',
+    'text-heading-4-font-family': 'ff_2b',
+    'text-heading-5-font-family': 'ff_2b',
+    'text-heading-6-font-family': 'ff_2b',
 
-    'text-label-font-family': 'osl_b',
+    'text-subtitle-1-font-family': 'ff_2b',
+    'text-subtitle-2-font-family': 'ff_2b',
+
+    'text-paragraph-1-font-family': 'ff_2',
+    'text-paragraph-2-font-family': 'ff_2',
+
+    'text-caption-1-font-family': 'ff_2',
+    'text-caption-2-font-family': 'ff_2',
+
+    'text-label-font-family': 'ff_2b',
   },
 };
 
@@ -125,15 +134,15 @@ export const navigation = {
 export const rem = 16;
 
 export const styles = {
-  al: { fontFamily: 'al' },
-  osl: { fontFamily: 'osl' },
-  osl_b: { fontFamily: 'osl_b' },
-  osl_bi: { fontFamily: 'osl_bi' },
+  ff_1: { fontFamily: 'ff_1' },
+  ff_2: { fontFamily: 'ff_2' },
+  ff_2b: { fontFamily: 'ff_2b' },
+  ff_2bi: { fontFamily: 'ff_2bi' },
 };
 
 export const fonts = {
-  osl: require('assets/fonts/Oswald.ttf'),
-  osl_b: require('assets/fonts/Oswald_bold.ttf'),
-  osl_bi: require('assets/fonts/Oswald_bold_italic.ttf'),
-  al: require('assets/fonts/AbrahamLincoln.ttf'),
+  ff_1: require('assets/fonts/AbrahamLincoln.ttf'),
+  ff_2: require('assets/fonts/Oswald.ttf'),
+  ff_2b: require('assets/fonts/Oswald_bold.ttf'),
+  ff_2bi: require('assets/fonts/Oswald_bold_italic.ttf'),
 };
