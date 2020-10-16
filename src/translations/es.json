@@ -40,5 +40,6 @@
   "forgot.resetPassword": "Reinicia tu contraseña",
   "forgot.backToSignIn": "La recuerda ahora? Inicie sesión",
 
-  "section.empty": "Esta sección esta vacía"
+  "section.empty": "Esta sección esta vacía",
+  "section.search": "Busque aquí"
 }

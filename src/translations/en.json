@@ -40,5 +40,6 @@
   "forgot.resetPassword": "Reset your password",
   "forgot.backToSignIn": "Remember now? Sign in",
 
-  "section.empty": "This section is empty"
+  "section.empty": "This section is empty",
+  "section.search": "Search here"
 }

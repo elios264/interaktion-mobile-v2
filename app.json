@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Luxury World Guides",
+    "name": "Luxury World Madrid",
     "slug": "interaktion-luxury-world-madrid",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,13 @@
     "icon": "./assets/images/icon.png",
     "scheme": "lwm",
     "ios": {
-      "requireFullScreen": true
+      "requireFullScreen": true,
+      "bundleIdentifier": "com.luxury.world",
+      "buildNumber": "12"
+    },
+    "android": {
+      "package": "com.luxury.world",
+      "versionCode": 12
     },
     "splash": {
       "image": "./assets/images/splash.png",

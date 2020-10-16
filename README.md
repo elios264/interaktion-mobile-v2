@@ -10,9 +10,14 @@ Ideas:
 - setup light & dark theme
 
 TODO:
+- Account and sign-out and privacy police
 - Push notifications
 - back title too large overflows
+- for event display additional fields
+- feedback corrections
 
-Modules:
-- Details
-- Account/sign-out
+
+Later:
+- title optional on content details
+- improve search bar (make animated)
+- improve richTextRenderer
