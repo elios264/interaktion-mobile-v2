@@ -14,7 +14,7 @@ export const ContentHeader = ({ section: { title, image }, searching, onSearchCh
   const theme = useTheme();
   return (
     <View>
-      {searching && <Input status='control' style={T('ma2 br5')} placeholder={i18n.t('section.search')} onChangeText={onSearchChange} accessoryRight={(props) => <Icon {...props} name='search-outline' />} autoFocus />}
+      {searching && <Input status='control' style={T('ma2', { borderColor: 'transparent', backgroundColor: theme['color-basic-900'] })} placeholder={i18n.t('section.search')} onChangeText={onSearchChange} accessoryRight={(props) => <Icon {...props} name='search-outline' />} autoFocus />}
       <AutoHeightImage style={T('wp100 rm-contain ba b--white')} source={image} />
       <Text style={T('tc f6 pv5 ph3')} category='h1' status='primary'>{title}</Text>
       <View style={T('mh3 h2 mb5', { backgroundColor: theme['color-primary-500'] })} />

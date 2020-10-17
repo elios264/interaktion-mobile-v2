@@ -33,8 +33,8 @@ export const resetPassword = ({ token, username }, { password }) => handleError(
   return true;
 }, i18n.t('error.resetPassword'));
 
-export const updateProfile = (user) => handleError(async (dispatch, getState, { api }) => {
-  await api.updateProfile(user);
+export const updateProfile = (userData) => handleError(async (dispatch, getState, { api }) => {
+  await api.updateProfile(userData);
   showDialog(i18n.t('success.updateProfile'));
   return true;
 }, i18n.t('error.updateProfile'));

@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import React, { useMemo } from 'react';
-import { Layout, Text } from '@ui-kitten/components';
+import React, { useMemo, useLayoutEffect } from 'react';
+import {
+  Layout, Text, Button, Icon,
+} from '@ui-kitten/components';
 import {
   Image, FlatList, Dimensions, TouchableOpacity, View,
 } from 'react-native';
@@ -9,6 +11,7 @@ import queryString from 'query-string';
 import { useSelector } from 'react-redux';
 import { T } from '@shipt/react-native-tachyons';
 import { useLinkProps } from '@react-navigation/native';
+import i18n from 'i18n-js';
 
 import { downloadInitialData } from 'actions/initializers';
 import { useDispatchCallback } from 'controls/hooks';
@@ -18,12 +21,27 @@ const getItemLayout = (data, index) => ({ length: itemHeight, offset: itemHeight
 const getItemKey = _.iteratee('id');
 const renderItem = ({ item }) => <SectionElement section={item} />;
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   const sections = useSelector((state) => state.objects.sections);
   const refreshing = useSelector((state) => state.appInfo.refreshing);
 
   const sortedSections = useMemo(() => _.sortBy(sections, 'order'), [sections]);
   const refreshData = useDispatchCallback(downloadInitialData);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: i18n.t('home'),
+      headerRight: () => (
+        <Button
+          appearance='ghost'
+          size='large'
+          status='control'
+          accessoryLeft={(props) => <Icon name='more-horizontal-outline' {...props} />}
+          onPress={() => navigation.navigate('settings')}
+        />
+      ),
+    });
+  }, [navigation]);
 
   return (
     <Layout style={T('flx-i')}>

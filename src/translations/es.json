@@ -21,6 +21,8 @@
   "name": "Nombre",
   "submit": "Enviar",
   "home": "Inicio",
+  "settings": "Ajustes",
+  "update": "Actualizar",
 
   "signup.signup": "Registrarse",
   "signup.signIn": "¿Ya tiene una cuenta? Inicie sesión",
@@ -41,5 +43,13 @@
   "forgot.backToSignIn": "La recuerda ahora? Inicie sesión",
 
   "section.empty": "Esta sección esta vacía",
-  "section.search": "Busque aquí"
+  "section.search": "Busque aquí",
+
+  "settings.greeting": "¡Hola %{name}!",
+  "settings.anonymous": "Anónimo",
+  "settings.logout": "Cerrar sesión",
+  "settings.account": "Cuenta",
+  "settings.privacyPolicy": "Política de privacidad",
+
+  "profile.title": "Edita tu cuenta"
 }

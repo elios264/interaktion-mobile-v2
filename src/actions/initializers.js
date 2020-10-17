@@ -29,11 +29,11 @@ export const downloadInitialData = () => handleError(async (dispatch, getState, 
 
   try {
 
-    const { features, sections = [], contents = [] } = await api.runCloudCode('get-client-data', {
+    const { config, sections = [], contents = [] } = await api.runCloudCode('get-client-data', {
       language: i18n.locale,
     });
 
-    dispatch({ type: 'SET_CONFIG', config: features });
+    dispatch({ type: 'SET_CONFIG', config });
     dispatch({ type: 'CONTENTS_FETCHED', objects: contents });
     dispatch({ type: 'SECTIONS_FETCHED', objects: sections });
 

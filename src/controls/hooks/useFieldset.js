@@ -53,7 +53,7 @@ const messages = {
 
 };
 
-const defaultClone = (source) => _.cloneDeep(source);
+const defaultClone = _.cloneDeep;
 
 const errorsReducer = (state, { type, field, value }) => {
   switch (type) {
@@ -134,11 +134,9 @@ export const useFieldset = ({
     }
     /* eslint-enable no-await-in-loop */
 
-    const { error, value: validatedSource } = Joi.object(schema).validate(
-      source.attributes ? _.pick(source, _.keys(schema)) : source, {
-        abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: '' }, language: i18n.locale },
-      },
-    );
+    const { error, value: validatedSource } = Joi.object(schema).validate(source, {
+      abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: '' }, language: i18n.locale },
+    });
 
     if (error) {
       _.invoke(!onSubmit && e, 'preventDefault'); // cancel form submit in case of traditional form validation
@@ -161,20 +159,7 @@ export const useFieldset = ({
       return false;
     }
 
-    let newSource = source;
-    if (source.attributes) { // parse objects need to have their fields set manually
-      const setProps = _.pickBy(validatedSource, (value, key) => (_.isUndefined(value) ? false : newSource[key] !== value || newSource.dirty(key)));
-      const unsetProps = _.difference(_.keys(schema), _.keys(validatedSource));
-      _.each(setProps, (prop, key) => {
-        newSource[key] = prop;
-      });
-      _.each(unsetProps, (key) => {
-        newSource[key] = undefined;
-      });
-    } else {
-      newSource = _.pickBy(validatedSource, _.negate(_.isUndefined));
-    }
-
+    const newSource = _.pickBy(validatedSource, _.negate(_.isUndefined));
     const success = await onSubmit(newSource);
 
     if (isMounted.current) {

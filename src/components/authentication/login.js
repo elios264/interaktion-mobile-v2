@@ -27,7 +27,7 @@ export const Login = () => {
   const forgotLinkProps = useLinkProps({ to: '/auth/forgot' });
 
   const [secureTextEntry, setSecureTextEntry] = useState(true);
-  const { authMode } = useSelector((state) => state.appInfo.config);
+  const { authMode } = useSelector((state) => state.appInfo.config.features);
 
   const accessAnonymously = useDispatchCallback(accessAsAnonymous);
   const { fields: { email, password }, submit, loading } = useFieldset({

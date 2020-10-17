@@ -5,6 +5,7 @@ import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-community/async-storage';
 import queryString from 'query-string';
 
+Parse.Object.disableSingleInstance();
 const anonymousUser = Object.freeze({ isAnonymous: true });
 
 export class Api {
@@ -55,14 +56,24 @@ export class Api {
     }
   }
 
-  async updateProfile(user) {
+  async updateProfile(userData) {
     const parseUser = await Parse.User.currentAsync();
     if (!parseUser) {
-      return user;
+      return userData;
     }
-    await user.save().then(() => this._updateLastActivity());
-    this.store.dispatch({ type: 'SET_USER', user });
-    return user;
+
+    // eslint-disable-next-line no-underscore-dangle
+    const userCopy = Parse.Object.fromJSON(parseUser._toFullJSON());
+    _.each(userData, (value, key) => {
+      userCopy.set(key, value);
+    });
+
+    await userCopy.save()
+      .then(() => parseUser.fetch())
+      .then(() => this._updateLastActivity());
+
+    this.store.dispatch({ type: 'SET_USER', user: parseUser });
+    return parseUser;
   }
 
   runCloudCode = (name, data) => {

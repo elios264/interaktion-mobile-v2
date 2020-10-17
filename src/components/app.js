@@ -1,15 +1,11 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Image, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { T } from '@shipt/react-native-tachyons';
-import { Icon, Button } from '@ui-kitten/components';
-import i18n from 'i18n-js';
 
 import logo from 'assets/images/logo.png';
-import { logout } from 'actions/authentication';
-
 import { authModes } from 'types';
 import {
   Login, Signup, Reset, Forgot,
@@ -17,34 +13,17 @@ import {
 import { Home } from './home';
 import { Section } from './section';
 import { Content } from './content';
+import { Settings } from './settings';
+import { Profile } from './profile';
 
 const Root = createStackNavigator();
 const Auth = createStackNavigator();
 const Main = createStackNavigator();
 
-const LogoutComponent = () => {
-  const dispatch = useDispatch();
-
-  return (
-    <Button
-      appearance='ghost'
-      size='large'
-      status='basic'
-      accessoryLeft={(props) => <Icon name='settings-outline' {...props} />}
-      onPress={() => dispatch(logout())}
-    />
-  );
-
-};
-
 const mainScreenOptions = {
   headerStyle: T('bb', { height: 100 }),
   headerTitleAlign: 'center',
   headerTitle: () => <Image source={logo} style={T('w8 hp85 rm-contain')} />,
-};
-const homeOptions = {
-  title: i18n.t('home'),
-  headerRight: () => <LogoutComponent />,
 };
 
 const AuthStack = () => (
@@ -58,16 +37,18 @@ const AuthStack = () => (
 
 const MainStack = () => (
   <Main.Navigator screenOptions={mainScreenOptions}>
-    <Main.Screen name='home' component={Home} options={homeOptions} />
+    <Main.Screen name='home' component={Home} />
     <Main.Screen name='section' component={Section} />
     <Main.Screen name='content' component={Content} />
+    <Main.Screen name='settings' component={Settings} />
+    <Main.Screen name='profile' component={Profile} />
   </Main.Navigator>
 );
 
 export const App = () => {
   const initializing = useSelector((state) => state.appInfo.initializing);
   const { user, accessAsAnonymous } = useSelector((state) => state.userInfo);
-  const { authMode } = useSelector((state) => state.appInfo.config);
+  const { authMode } = useSelector((state) => state.appInfo.config.features);
 
   if (initializing) {
     return null;
