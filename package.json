@@ -1,15 +1,18 @@
 {
   "main": "src/appLoader.js",
   "scripts": {
+    "postinstall": "patch-package",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
     "lint": "eslint --fix ./src --color",
     "optimize": "npx expo-optimize",
-    "build:binary-android": "expo build:android -t app-bundle --release-channel staging",
-    "build:binary-ios": "expo build:ios -t archive --release-channel staging",
-    "publish:js": "expo publish --release-channel staging"
+    "build:binary-android": "expo build:android -t app-bundle",
+    "build:binary-ios": "expo build:ios -t archive",
+    "upload:ios": "expo upload:ios",
+    "upload:android": "expo upload:android",
+    "publish:js": "expo publish"
   },
   "dependencies": {
     "@eva-design/eva": "^2.0.0",
@@ -51,7 +54,9 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "text-encoding": "^0.7.0",
-    "expo-web-browser": "~8.5.0"
+    "expo-web-browser": "~8.5.0",
+    "expo-permissions": "~9.3.0",
+    "expo-notifications": "~0.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.1",
@@ -63,7 +68,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.4",
-    "eslint-plugin-react-hooks": "^4.1.2"
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "patch-package": "^6.2.2"
   },
   "private": true
 }

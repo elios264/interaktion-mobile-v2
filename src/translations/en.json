@@ -8,6 +8,7 @@
   "error.updateProfile": "Could not update your profile",
   "error.signup": "Could not sign you up",
   "error.resetPassword": "Could not reset your password",
+  "error.openNotification": "Could not process the notification",
 
   "success.requestPasswordReset": "A password reset email has been sent to the provided email.",
   "success.signup": "Account successfully created, check your email to set your password",

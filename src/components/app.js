@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useSelector } from 'react-redux';
-import { Image, Platform } from 'react-native';
+import { Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { T } from '@shipt/react-native-tachyons';
 
@@ -61,7 +61,7 @@ export const App = () => {
 
   return (
     <>
-      <StatusBar style={Platform.OS === 'android' ? 'auto' : 'inverted'} />
+      <StatusBar style='auto' />
       <Root.Navigator headerMode='none'>
         {shouldPresentAuthStack
           ? <Root.Screen name='auth' component={AuthStack} />

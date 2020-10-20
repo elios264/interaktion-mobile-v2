@@ -5,6 +5,8 @@ import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-community/async-storage';
 import queryString from 'query-string';
 
+import { NotificationsApi } from './notifications';
+
 Parse.Object.disableSingleInstance();
 const anonymousUser = Object.freeze({ isAnonymous: true });
 
@@ -15,6 +17,8 @@ export class Api {
     Parse.initialize(Constants.manifest.extra.apiId);
     Parse.serverURL = Constants.manifest.extra.apiUrl;
     this.store = null;
+
+    this.notifications = new NotificationsApi(this);
   }
 
   async initialize(store) {
@@ -52,7 +56,7 @@ export class Api {
 
     const parseUser = await Parse.User.currentAsync();
     if (parseUser) {
-      Parse.User.logOut();
+      await Parse.User.logOut();
     }
   }
 

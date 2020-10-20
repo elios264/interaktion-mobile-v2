@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { T } from '@shipt/react-native-tachyons';
 import i18n from 'i18n-js';
 
-import { downloadInitialData } from 'actions/initializers';
+import { synchronizeData } from 'actions/initializers';
 import { useDispatchCallback } from 'controls/hooks';
 import { mobileViews } from 'types';
 
@@ -37,7 +37,7 @@ export const Section = ({ route, navigation }) => {
   const [searching, setSearching] = useState(false);
   const [search, setSearch] = useState('');
   const refreshing = useSelector((state) => state.appInfo.refreshing);
-  const refreshData = useDispatchCallback(downloadInitialData);
+  const refreshData = useDispatchCallback(synchronizeData);
 
   const section = useSelector((state) => state.objects.sections[sectionId]);
   const contents = useSelector((state) => state.objects.contents);

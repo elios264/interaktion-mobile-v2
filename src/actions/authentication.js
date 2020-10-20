@@ -1,17 +1,17 @@
 import i18n from 'i18n-js';
 import { handleError, showDialog } from './utils';
-import { downloadInitialData } from './initializers';
+import { synchronizeData } from './initializers'; // eslint-disable-line import/no-cycle
 
 export const accessAsAnonymous = () => ({ type: 'SET_ACCESS_AS_ANONYMOUS', accessAsAnonymous: true });
 
 export const login = (loginData) => handleError(async (dispatch, getState, { api }) => {
   await api.login(loginData);
-  dispatch(downloadInitialData());
+  dispatch(synchronizeData());
   return true;
 }, i18n.t('error.login'));
 
 export const logout = () => handleError(async (dispatch, getState, { api }) => {
-  api.logout();
+  api.logout().then(() => api.notifications.updateInstallation());
   return true;
 }, i18n.t('error.logout'));
 

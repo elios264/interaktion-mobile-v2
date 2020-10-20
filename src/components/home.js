@@ -13,7 +13,7 @@ import { T } from '@shipt/react-native-tachyons';
 import { useLinkProps } from '@react-navigation/native';
 import i18n from 'i18n-js';
 
-import { downloadInitialData } from 'actions/initializers';
+import { synchronizeData } from 'actions/initializers';
 import { useDispatchCallback } from 'controls/hooks';
 
 const itemHeight = (Dimensions.get('window').height - 100) / 3.5;
@@ -26,7 +26,7 @@ export const Home = ({ navigation }) => {
   const refreshing = useSelector((state) => state.appInfo.refreshing);
 
   const sortedSections = useMemo(() => _.sortBy(sections, 'order'), [sections]);
-  const refreshData = useDispatchCallback(downloadInitialData);
+  const refreshData = useDispatchCallback(synchronizeData);
 
   useLayoutEffect(() => {
     navigation.setOptions({

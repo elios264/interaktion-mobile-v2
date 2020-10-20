@@ -12,16 +12,22 @@
     "ios": {
       "requireFullScreen": true,
       "bundleIdentifier": "com.luxury.world",
-      "buildNumber": "12"
+      "buildNumber": "14"
     },
     "android": {
       "package": "com.luxury.world",
-      "versionCode": 12
+      "versionCode": 14,
+      "permissions": [],
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json"
     },
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"

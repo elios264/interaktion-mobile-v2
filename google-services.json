@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "754754107604",
+    "firebase_url": "https://luxury-world-madrid.firebaseio.com",
+    "project_id": "luxury-world-madrid",
+    "storage_bucket": "luxury-world-madrid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754754107604:android:f1146bb2c799c757dc2341",
+        "android_client_info": {
+          "package_name": "com.luxury.world"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754754107604-jrdhneijlr8ksv8tsfte5sfi8tb17d0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7mGXqzZhpzcbSpHsSJrIwvpDfO4OA5RI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754754107604-jrdhneijlr8ksv8tsfte5sfi8tb17d0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

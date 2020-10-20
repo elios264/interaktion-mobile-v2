@@ -8,6 +8,7 @@
   "error.updateProfile": "No se pudo actualizar su perfil",
   "error.signup": "No se pudo crear su cuenta",
   "error.resetPassword": "No se pudo restablecer su contraseña",
+  "error.openNotification": "No se pudo procesar la notificación",
 
   "success.requestPasswordReset": "Se ha enviado un correo para restablecer su contraseña.",
   "success.signup": "Cuenta creada con éxito, cheque su correo para establecer su contraseña",
