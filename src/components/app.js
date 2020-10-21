@@ -47,7 +47,7 @@ const MainStack = () => (
 
 export const App = () => {
   const initializing = useSelector((state) => state.appInfo.initializing);
-  const { user, accessAsAnonymous } = useSelector((state) => state.userInfo);
+  const { user, anonymousAccess } = useSelector((state) => state.userInfo);
   const { authMode } = useSelector((state) => state.appInfo.config.features);
 
   if (initializing) {
@@ -56,12 +56,12 @@ export const App = () => {
 
   const shouldPresentAuthStack = user.isAnonymous && (
     authMode === authModes.private
-    || (authMode === authModes.mixed && !accessAsAnonymous)
+    || (authMode === authModes.mixed && !anonymousAccess)
   );
 
   return (
     <>
-      <StatusBar style='auto' />
+      <StatusBar style='light' />
       <Root.Navigator headerMode='none'>
         {shouldPresentAuthStack
           ? <Root.Screen name='auth' component={AuthStack} />

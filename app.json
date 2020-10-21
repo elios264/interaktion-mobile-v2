@@ -12,7 +12,13 @@
     "ios": {
       "requireFullScreen": true,
       "bundleIdentifier": "com.luxury.world",
-      "buildNumber": "14"
+      "buildNumber": "14",
+      "infoPlist": {
+        "UIUserInterfaceStyle": "Dark"
+      }
+    },
+    "androidStatusBar": {
+      "hidden": true
     },
     "android": {
       "package": "com.luxury.world",

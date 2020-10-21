@@ -42,7 +42,7 @@ export const Settings = ({ navigation }) => {
         {privacyPolicyUrl && (
           <SettingElement
             left={i18n.t('settings.privacyPolicy')}
-            onPress={() => WebBrowser.openBrowserAsync(privacyPolicyUrl)}
+            onPress={() => WebBrowser.openBrowserAsync(privacyPolicyUrl, { dismissButtonStyle: 'close' })}
           />
         )}
       </View>

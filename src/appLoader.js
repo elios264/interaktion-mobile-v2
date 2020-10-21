@@ -15,6 +15,7 @@ import * as eva from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
+import moment from 'moment';
 
 import * as theme from 'theme';
 import translations from 'translations';
@@ -30,6 +31,10 @@ i18n.defaultSeparator = '|';
 i18n.defaultLocale = Constants.manifest.extra.defaultLocale;
 i18n.locale = _(Localization.locale).split('-').head();
 i18n.translations = translations;
+// import supported locales
+require('moment/locale/es');
+// set current locale
+moment.locale(i18n.locale);
 
 // require needed modules for bootstrap
 const { Api } = require('api');

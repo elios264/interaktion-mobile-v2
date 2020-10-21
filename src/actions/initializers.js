@@ -3,6 +3,7 @@ import i18n from 'i18n-js';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
+import moment from 'moment';
 
 import { fonts } from 'theme';
 import { authModes } from 'types';
@@ -55,13 +56,17 @@ export const synchronizeData = () => handleError(async (dispatch, getState, { ap
 export const routeNotification = ({ notification }) => handleError(async (dispatch, getState, { nav }) => {
   const action = _.get(notification, 'request.content.data.action');
   const contentId = _.get(notification, 'request.content.data.contentId');
+  const contentUpdatedAt = _.get(notification, 'request.content.data.contentUpdatedAt');
 
   if (action !== 'view_content' || !contentId) {
     return false;
   }
 
-  // update latest data
-  await dispatch(synchronizeData());
+  // lets check if we have the latest content, and refresh if we don't
+  const cachedContent = getState().objects.contents[contentId];
+  if (!cachedContent || !moment(cachedContent.updatedAt).isSame(contentUpdatedAt)) {
+    await dispatch(synchronizeData());
+  }
 
   // abort if no content
   const content = getState().objects.contents[contentId];
@@ -70,12 +75,12 @@ export const routeNotification = ({ notification }) => handleError(async (dispat
   }
 
   // check if I have privilegies
-  const { user } = getState().userInfo;
+  const { user, anonymousAccess } = getState().userInfo;
   const { authMode } = getState().appInfo.config.features;
   if (user.isAnonymous && authMode === authModes.private) {
     return false;
   }
-  if (user.isAnonymous && authMode === authModes.mixed) {
+  if (user.isAnonymous && !anonymousAccess && authMode === authModes.mixed) {
     dispatch(accessAsAnonymous());
   }
 

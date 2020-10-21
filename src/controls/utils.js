@@ -1,5 +1,6 @@
 import { Alert } from 'react-native';
 import i18n from 'i18n-js';
+import moment from 'moment';
 
 export const showDialog = (title, message = '', buttons, options) => {
   setTimeout(() => {
@@ -15,3 +16,4 @@ export const showConfirmDialog = (title, message) => new Promise((res) => {
 });
 
 export const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+export const formatDate = (date, format = 'DD-MMM-YYYY HH:mm') => moment(date).format(format);

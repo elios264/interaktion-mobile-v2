@@ -44,7 +44,7 @@ export const Section = ({ route, navigation }) => {
   const sortedContents = useMemo(() => _(contents)
     .filter(['section', sectionId])
     .filter(({ title }) => includesDeburr(title, search))
-    .sortBy('title')
+    .sortBy('order')
     .value(),
   [contents, sectionId, search]);
 
