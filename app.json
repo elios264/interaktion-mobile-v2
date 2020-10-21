@@ -12,7 +12,7 @@
     "ios": {
       "requireFullScreen": true,
       "bundleIdentifier": "com.luxury.world",
-      "buildNumber": "14",
+      "buildNumber": "15",
       "infoPlist": {
         "UIUserInterfaceStyle": "Dark"
       }
@@ -22,7 +22,7 @@
     },
     "android": {
       "package": "com.luxury.world",
-      "versionCode": 14,
+      "versionCode": 15,
       "permissions": [],
       "useNextNotificationsApi": true,
       "googleServicesFile": "./google-services.json"
