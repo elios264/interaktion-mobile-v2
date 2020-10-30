@@ -19,6 +19,8 @@ export const Settings = ({ navigation }) => {
   const user = useSelector((state) => state.userInfo.user);
   const { features: { authMode }, privacyPolicyUrl } = useSelector((state) => state.appInfo.config);
 
+  const pages = useSelector((state) => state.objects.pages);
+
   useLayoutEffect(() => {
     navigation.setOptions({ title: i18n.t('settings') });
   }, [navigation]);
@@ -39,6 +41,14 @@ export const Settings = ({ navigation }) => {
             onPress={() => navigation.navigate('profile')}
           />
         )}
+        {_(pages).sortBy('order').map(({ id, title }) => (
+          <SettingElement
+            key={id}
+            left={title}
+            right={<Icon name='arrow-ios-forward-outline' fill='white' style={T('white w5 h5')} />}
+            onPress={() => navigation.navigate('page', { id })}
+          />
+        )).value()}
         {privacyPolicyUrl && (
           <SettingElement
             left={i18n.t('settings.privacyPolicy')}

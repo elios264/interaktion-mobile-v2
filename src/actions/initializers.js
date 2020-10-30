@@ -36,13 +36,16 @@ export const synchronizeData = () => handleError(async (dispatch, getState, { ap
 
   try {
 
-    const { config, sections = [], contents = [] } = await api.runCloudCode('get-client-data', {
+    const {
+      config, sections = [], contents = [], pages = [],
+    } = await api.runCloudCode('get-client-data', {
       language: i18n.locale,
     });
 
     dispatch({ type: 'SET_CONFIG', config });
     dispatch({ type: 'CONTENTS_FETCHED', objects: contents });
     dispatch({ type: 'SECTIONS_FETCHED', objects: sections });
+    dispatch({ type: 'PAGES_FETCHED', objects: pages });
 
     // only await for essential data, the rest can be done in background
     api.notifications.updateInstallation();
@@ -55,22 +58,24 @@ export const synchronizeData = () => handleError(async (dispatch, getState, { ap
 
 export const routeNotification = ({ notification }) => handleError(async (dispatch, getState, { nav }) => {
   const action = _.get(notification, 'request.content.data.action');
-  const contentId = _.get(notification, 'request.content.data.contentId');
-  const contentUpdatedAt = _.get(notification, 'request.content.data.contentUpdatedAt');
+  const entityId = _.get(notification, 'request.content.data.id');
+  const entityUpdatedAt = _.get(notification, 'request.content.data.updatedAt');
 
-  if (action !== 'view_content' || !contentId) {
+  if ((action !== 'view_content' && action !== 'view_page') || !entityId) {
     return false;
   }
 
-  // lets check if we have the latest content, and refresh if we don't
-  const cachedContent = getState().objects.contents[contentId];
-  if (!cachedContent || !moment(cachedContent.updatedAt).isSame(contentUpdatedAt)) {
+  const storeEntities = () => getState().objects[action === 'view_content' ? 'contents' : 'pages'];
+
+  // lets check if we have the latest entity, and refresh if we don't
+  const cachedEntity = storeEntities()[entityId];
+  if (!cachedEntity || !moment(cachedEntity.updatedAt).isSame(entityUpdatedAt)) {
     await dispatch(synchronizeData());
   }
 
-  // abort if no content
-  const content = getState().objects.contents[contentId];
-  if (!content) {
+  // abort if no entity
+  const entity = storeEntities()[entityId];
+  if (!entity) {
     return false;
   }
 
@@ -85,7 +90,7 @@ export const routeNotification = ({ notification }) => handleError(async (dispat
   }
 
   // route to content
-  nav.current.navigate('content', { contentId });
+  nav.current.navigate(action === 'view_content' ? 'content' : 'page', { id: entityId });
 
   return true;
 }, i18n.t('error.openNotification'));

@@ -10,4 +10,4 @@ Ideas:
 - improve richTextRenderer
 
 TODO:
-- fix status bar theme *
+- update libs

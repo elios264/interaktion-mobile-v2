@@ -14,6 +14,12 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'react/no-unescaped-entities': ['error', { forbid: ['>', '<', '{', '}'] }],
+    'no-sequences': 'off',
+    'dot-notation': ['error', { allowKeywords: true, allowPattern: '^_.*' }],
+    'max-classes-per-file': 'off',
+    'prefer-const': ['warn', { destructuring: 'all' }],
+    'no-restricted-syntax': 'off',
     'jsx-quotes': ['error', 'prefer-single'],
     'padded-blocks': 'off',
     'global-require': 'off',

@@ -12,17 +12,14 @@
     "ios": {
       "requireFullScreen": true,
       "bundleIdentifier": "com.luxury.world",
-      "buildNumber": "15",
-      "infoPlist": {
-        "UIUserInterfaceStyle": "Dark"
-      }
+      "buildNumber": "18"
     },
     "androidStatusBar": {
       "hidden": true
     },
     "android": {
       "package": "com.luxury.world",
-      "versionCode": 15,
+      "versionCode": 18,
       "permissions": [],
       "useNextNotificationsApi": true,
       "googleServicesFile": "./google-services.json"
@@ -31,9 +28,6 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"

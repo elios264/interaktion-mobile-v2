@@ -13,6 +13,7 @@ import {
 import { Home } from './home';
 import { Section } from './section';
 import { Content } from './content';
+import { Page } from './page';
 import { Settings } from './settings';
 import { Profile } from './profile';
 
@@ -40,6 +41,7 @@ const MainStack = () => (
     <Main.Screen name='home' component={Home} />
     <Main.Screen name='section' component={Section} />
     <Main.Screen name='content' component={Content} />
+    <Main.Screen name='page' component={Page} />
     <Main.Screen name='settings' component={Settings} />
     <Main.Screen name='profile' component={Profile} />
   </Main.Navigator>

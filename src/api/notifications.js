@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import * as Notifications from 'expo-notifications';
@@ -29,9 +30,8 @@ export class NotificationsApi {
     }
 
     const { status: existingStatus } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
-
     let finalStatus = existingStatus;
-    if (existingStatus !== 'granted') {
+    if (existingStatus !== 'granted' || Platform.OS === 'android') {
       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
       finalStatus = status;
     }
@@ -41,7 +41,7 @@ export class NotificationsApi {
     }
 
     if (Platform.OS === 'android') {
-      Notifications.setNotificationChannelAsync('default', {
+      await Notifications.setNotificationChannelAsync('default', {
         name: 'default',
         importance: Notifications.AndroidImportance.MAX,
         vibrationPattern: [0, 250, 250, 250],
@@ -53,10 +53,10 @@ export class NotificationsApi {
       installationId: Constants.installationId,
       deviceName: Constants.deviceName,
       deviceYear: Constants.deviceYearClass,
-      deviceVersion: Platform.Version,
+      deviceVersion: _.toString(Platform.Version),
       devicePlatform: Platform.OS,
       appVersion: Constants.nativeAppVersion,
-      buildVersion: Constants.nativeBuildVersion,
+      buildVersion: _.toString(Constants.nativeBuildVersion),
       language: i18n.locale,
       enabled: true,
       pushToken: await Notifications.getExpoPushTokenAsync().then((token) => token.data),

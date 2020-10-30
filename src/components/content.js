@@ -9,9 +9,9 @@ import { AutoHeightImage, RichTextRenderer, utils } from 'controls';
 import { contentTypes } from 'types';
 
 export const Content = ({ route, navigation }) => {
-  const { contentId } = route.params;
+  const { id } = route.params;
 
-  const content = useSelector((state) => state.objects.contents[contentId]);
+  const content = useSelector((state) => state.objects.contents[id]);
 
   useLayoutEffect(() => {
     navigation.setOptions({ headerBackTitle: i18n.t('back') });

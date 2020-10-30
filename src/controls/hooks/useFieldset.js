@@ -135,7 +135,7 @@ export const useFieldset = ({
     /* eslint-enable no-await-in-loop */
 
     const { error, value: validatedSource } = Joi.object(schema).validate(source, {
-      abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: '' }, language: i18n.locale },
+      abortEarly: false, allowUnknown: true, messages, errors: { wrap: { label: false }, language: i18n.locale },
     });
 
     if (error) {

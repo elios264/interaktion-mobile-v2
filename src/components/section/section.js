@@ -48,7 +48,7 @@ export const Section = ({ route, navigation }) => {
     .value(),
   [contents, sectionId, search]);
 
-  const navigateToContent = useCallback(({ id }) => navigation.navigate('content', { contentId: id }), [navigation]);
+  const navigateToContent = useCallback(({ id }) => navigation.navigate('content', { id }), [navigation]);
   const toggleSearch = useCallback(() => {
     setSearching(!searching);
     setSearch('');

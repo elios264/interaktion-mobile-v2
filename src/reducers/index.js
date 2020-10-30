@@ -6,6 +6,7 @@ import { appInfoReducer } from './appInfo';
 const objectsReducer = combineReducers({
   contents: createCRUDObjectReducer('CONTENTS'),
   sections: createCRUDObjectReducer('SECTIONS'),
+  pages: createCRUDObjectReducer('PAGES'),
 });
 
 export const rootReducer = combineReducers({
