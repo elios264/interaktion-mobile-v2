@@ -25,7 +25,7 @@ export const Page = ({ route, navigation }) => {
   return (
     <Layout style={T('flx-i')}>
       <ScrollView>
-        <View style={T('mv4 mh5')}>
+        <View style={T('mt1 mb4 mh5')}>
           <RichTextRenderer document={document} />
         </View>
       </ScrollView>

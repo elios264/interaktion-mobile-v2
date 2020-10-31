@@ -7,6 +7,7 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "lint": "eslint --fix ./src --color",
+    "prestart": "npm run lint",
     "optimize": "npx expo-optimize",
     "build:binary-android": "expo build:android -t app-bundle",
     "build:binary-ios": "expo build:ios -t archive",

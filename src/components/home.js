@@ -64,7 +64,7 @@ const SectionElement = ({ section: { id, title, image } }) => {
   return (
     <TouchableOpacity style={T('ba b--white', { height: itemHeight })} activeOpacity={0.8} {...sectionLinkProps}>
       <View style={T('absolute-fill')}>
-        <Image style={T('flx-i asc o-70 wp100 rm-cover')} source={image} />
+        <Image style={T('flx-i asc o-40 wp100 rm-cover')} source={image} />
       </View>
       <View style={T('absolute-fill aic jcc pa3')}>
         <Text style={T('tc')} category='h1' status='control'>{title}</Text>
