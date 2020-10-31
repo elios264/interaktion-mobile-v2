@@ -58,7 +58,7 @@ export const Settings = ({ navigation }) => {
       </View>
       {authMode !== authModes.public && (
         <View style={T('ph5 mb3')}>
-          <Button style={T('br6')} appearance='outline' onPress={() => dispatch(logout())}>
+          <Button style={T('br5')} appearance='outline' onPress={() => dispatch(logout())}>
             {i18n.t('settings.logout')}
           </Button>
         </View>

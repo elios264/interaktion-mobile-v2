@@ -61,7 +61,7 @@ export const Profile = () => {
           />
         </View>
         <View style={T('ph5 mb3')}>
-          <LoadingButton style={T('mh7 br6')} onPress={submit} loading={loading} size='large'>
+          <LoadingButton style={T('mh7 br5')} onPress={submit} loading={loading} size='large'>
             {i18n.t('update')}
           </LoadingButton>
         </View>

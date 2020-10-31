@@ -81,7 +81,7 @@ export const Login = () => {
             </Button>
           </View>
         </View>
-        <LoadingButton style={T('mh7 br6')} size='large' onPress={submit} loading={loading}>
+        <LoadingButton style={T('mh7 br5')} size='large' onPress={submit} loading={loading}>
           {i18n.t('login.signIn')}
         </LoadingButton>
         {authMode === authModes.mixed && (
@@ -89,7 +89,7 @@ export const Login = () => {
             <Text style={T('asc mv5')} status='control'>
               {i18n.t('login.or')}
             </Text>
-            <Button style={T('mh5 br6')} appearance='outline' status='primary' size='large' onPress={accessAnonymously} loading={loading}>
+            <Button style={T('mh7 br5')} appearance='outline' status='primary' size='large' onPress={accessAnonymously} loading={loading}>
               {i18n.t('login.accessAnonymously')}
             </Button>
           </View>

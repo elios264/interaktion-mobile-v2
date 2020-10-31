@@ -23,7 +23,7 @@ const Button = ({ // eslint-disable-next-line react/prop-types
 
   return (
     <TouchableOpacity {...props} disabled={disabled} activeOpacity={0.6}>
-      <LinearGradient colors={disabled ? gradientColorsDisabled : gradientColors} style={T('flx-i aic jcc pa3', style)}>
+      <LinearGradient colors={disabled ? gradientColorsDisabled : gradientColors} style={T('flx-i aic jcc pa4 pt5', style)}>
         {(accessoryLeft && accessoryLeft({})) || (
           <Text style={T('tc ff_1 black')} status='control' category='h5'>
             {_.toUpper(children)}

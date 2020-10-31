@@ -62,7 +62,7 @@ export const Signup = ({ navigation }) => {
             caption={email.errored && email.message}
           />
         </View>
-        <LoadingButton style={T('mh7 br6')} size='large' onPress={submit} loading={loading}>
+        <LoadingButton style={T('mh7 br5')} size='large' onPress={submit} loading={loading}>
           {i18n.t('signup.signup')}
         </LoadingButton>
         <Button style={T('mv4 mh5')} appearance='ghost' status='control' onPress={navigateToLogin}>
