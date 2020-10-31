@@ -14,6 +14,7 @@ module.exports = {
     es6: true,
   },
   rules: {
+    'react/require-default-props': 'off',
     'react/no-unescaped-entities': ['error', { forbid: ['>', '<', '{', '}'] }],
     'no-sequences': 'off',
     'dot-notation': ['error', { allowKeywords: true, allowPattern: '^_.*' }],

@@ -83,8 +83,3 @@ SettingElement.propTypes = {
   right: PropTypes.node,
   style: PropTypes.object,
 };
-
-SettingElement.defaultProps = {
-  right: undefined,
-  style: undefined,
-};
