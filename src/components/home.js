@@ -16,7 +16,7 @@ import i18n from 'i18n-js';
 import { synchronizeData } from 'actions/initializers';
 import { useDispatchCallback } from 'controls/hooks';
 
-const itemHeight = (Dimensions.get('window').height - 100) / 3.5;
+const itemHeight = (Dimensions.get('window').height - 130) / 3.5;
 const getItemLayout = (data, index) => ({ length: itemHeight, offset: itemHeight * index, index });
 const getItemKey = _.iteratee('id');
 const renderItem = ({ item }) => <SectionElement section={item} />;

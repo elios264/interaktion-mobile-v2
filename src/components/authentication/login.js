@@ -51,11 +51,12 @@ export const Login = () => {
             {i18n.t('login.signInAccount')}
           </Text>
         </View>
-        <View style={T('flx-i ph5')}>
+        <View style={T('ph6 pb3')}>
           <Input
+            style={T('br6')}
             status={email.errored ? 'danger' : 'control'}
             placeholder={i18n.t('email')}
-            accessoryRight={(props) => <Icon {...props} name='person' />}
+            accessoryLeft={(props) => <Icon {...props} name='person' />}
             value={email.value}
             autoCapitalize='none'
             keyboardType='email-address'
@@ -64,11 +65,11 @@ export const Login = () => {
             caption={email.errored && email.message}
           />
           <Input
-            style={T('mt5')}
+            style={T('mt5 br6')}
             status={password.errored ? 'danger' : 'control'}
             placeholder={i18n.t('password')}
             textContentType='password'
-            accessoryRight={renderSecureEntryIcon}
+            accessoryLeft={renderSecureEntryIcon}
             secureTextEntry={secureTextEntry}
             value={password.value}
             onChangeText={password.onChange}
@@ -80,7 +81,7 @@ export const Login = () => {
             </Button>
           </View>
         </View>
-        <LoadingButton style={T('mh5')} size='large' onPress={submit} loading={loading}>
+        <LoadingButton style={T('mh7 br6')} size='large' onPress={submit} loading={loading}>
           {i18n.t('login.signIn')}
         </LoadingButton>
         {authMode === authModes.mixed && (
@@ -88,7 +89,7 @@ export const Login = () => {
             <Text style={T('asc mv5')} status='control'>
               {i18n.t('login.or')}
             </Text>
-            <Button style={T('mh5')} appearance='outline' status='primary' size='large' onPress={accessAnonymously} loading={loading}>
+            <Button style={T('mh5 br6')} appearance='outline' status='primary' size='large' onPress={accessAnonymously} loading={loading}>
               {i18n.t('login.accessAnonymously')}
             </Button>
           </View>

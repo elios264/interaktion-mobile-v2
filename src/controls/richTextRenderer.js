@@ -131,8 +131,9 @@ export const RichTextRenderer = ({ document }) => {
           <Text
             key={index}
             selectable
+            status={type === 'h6' ? 'control' : undefined}
             category={type === 'p' ? 'p1' : type}
-            style={T(alignStyle)}
+            style={T(cx('mh4', alignStyle))}
           >
             {_.map(children, renderLeaf)}
           </Text>

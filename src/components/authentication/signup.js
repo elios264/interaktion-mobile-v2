@@ -37,11 +37,12 @@ export const Signup = ({ navigation }) => {
             {i18n.t('signup.signupAccount')}
           </Text>
         </View>
-        <View style={T('flx-i ph5 pt6')}>
+        <View style={T('ph6 pt6 pb5')}>
           <Input
+            style={T('br6')}
             status={name.errored ? 'danger' : 'control'}
             placeholder={i18n.t('name')}
-            accessoryRight={(props) => <Icon {...props} name='person' />}
+            accessoryLeft={(props) => <Icon {...props} name='person' />}
             value={name.value}
             autoCapitalize='words'
             textContentType='name'
@@ -49,10 +50,10 @@ export const Signup = ({ navigation }) => {
             caption={name.errored && name.message}
           />
           <Input
-            style={T('mt5')}
+            style={T('mt5 br6')}
             status={email.errored ? 'danger' : 'control'}
             placeholder={i18n.t('email')}
-            accessoryRight={(props) => <Icon {...props} name='email' />}
+            accessoryLeft={(props) => <Icon {...props} name='email' />}
             value={email.value}
             autoCapitalize='none'
             textContentType='emailAddress'
@@ -61,7 +62,7 @@ export const Signup = ({ navigation }) => {
             caption={email.errored && email.message}
           />
         </View>
-        <LoadingButton style={T('mh5')} size='large' onPress={submit} loading={loading}>
+        <LoadingButton style={T('mh7 br6')} size='large' onPress={submit} loading={loading}>
           {i18n.t('signup.signup')}
         </LoadingButton>
         <Button style={T('mv4 mh5')} appearance='ghost' status='control' onPress={navigateToLogin}>

@@ -35,11 +35,12 @@ export const Profile = () => {
         >
           {i18n.t('profile.title')}
         </Text>
-        <View style={T('mt6 mb4 flx-i ph5')}>
+        <View style={T('mt6 mb5 ph6')}>
           <Input
+            style={T('br6')}
             status={name.errored ? 'danger' : 'control'}
             placeholder={i18n.t('name')}
-            accessoryRight={(props) => <Icon {...props} name='person' />}
+            accessoryLeft={(props) => <Icon {...props} name='person' />}
             value={name.value}
             autoCapitalize='words'
             textContentType='name'
@@ -47,10 +48,10 @@ export const Profile = () => {
             caption={name.errored && name.message}
           />
           <Input
-            style={T('mt5')}
+            style={T('mt5 br6')}
             status={email.errored ? 'danger' : 'control'}
             placeholder={i18n.t('email')}
-            accessoryRight={(props) => <Icon {...props} name='email' />}
+            accessoryLeft={(props) => <Icon {...props} name='email' />}
             value={email.value}
             autoCapitalize='none'
             textContentType='emailAddress'
@@ -60,7 +61,7 @@ export const Profile = () => {
           />
         </View>
         <View style={T('ph5 mb3')}>
-          <LoadingButton onPress={submit} loading={loading} size='large'>
+          <LoadingButton style={T('mh7 br6')} onPress={submit} loading={loading} size='large'>
             {i18n.t('update')}
           </LoadingButton>
         </View>

@@ -44,8 +44,9 @@ export const Reset = ({ navigation, route }) => {
             {i18n.t('reset.resetPassword')}
           </Text>
         </View>
-        <View style={T('flx-i ph5 pt6')}>
+        <View style={T('ph6 pt6 pb5')}>
           <Input
+            style={T('br6')}
             status={password.errored ? 'danger' : 'control'}
             placeholder={i18n.t('password')}
             value={password.value}
@@ -53,11 +54,11 @@ export const Reset = ({ navigation, route }) => {
             textContentType='newPassword'
             onChangeText={password.onChange}
             caption={password.errored && password.message}
-            accessoryRight={renderSecureEntryIcon}
+            accessoryLeft={renderSecureEntryIcon}
             secureTextEntry={secureTextEntry}
           />
         </View>
-        <LoadingButton style={T('mh5')} size='large' onPress={submit} loading={loading}>
+        <LoadingButton style={T('mh7 br6')} size='large' onPress={submit} loading={loading}>
           {i18n.t('submit')}
         </LoadingButton>
         <Button style={T('mv4 mh5')} appearance='ghost' status='control' onPress={navigateToLogin}>

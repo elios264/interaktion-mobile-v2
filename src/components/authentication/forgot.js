@@ -36,11 +36,12 @@ export const Forgot = ({ navigation }) => {
             {i18n.t('forgot.resetPassword')}
           </Text>
         </View>
-        <View style={T('flx-i ph5 pt6')}>
+        <View style={T('ph6 pt6 pb5')}>
           <Input
+            style={T('br6')}
             status={email.errored ? 'danger' : 'control'}
             placeholder={i18n.t('email')}
-            accessoryRight={(props) => <Icon {...props} name='person' />}
+            accessoryLeft={(props) => <Icon {...props} name='person' />}
             value={email.value}
             autoCapitalize='none'
             keyboardType='email-address'
@@ -49,7 +50,7 @@ export const Forgot = ({ navigation }) => {
             caption={email.errored && email.message}
           />
         </View>
-        <LoadingButton style={T('mh5')} size='large' onPress={submit} loading={loading}>
+        <LoadingButton style={T('mh7 br6')} size='large' onPress={submit} loading={loading}>
           {i18n.t('submit')}
         </LoadingButton>
         <Button style={T('mv4 mh5')} appearance='ghost' status='control' onPress={navigateToLogin}>

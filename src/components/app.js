@@ -22,9 +22,9 @@ const Auth = createStackNavigator();
 const Main = createStackNavigator();
 
 const mainScreenOptions = {
-  headerStyle: T('bb', { height: 100 }),
+  headerStyle: T('bb', { height: 130 }),
   headerTitleAlign: 'center',
-  headerTitle: () => <Image source={logo} style={T('w8 hp85 rm-contain')} />,
+  headerTitle: () => <Image source={logo} style={T('w8 hp75 rm-contain')} />,
 };
 
 const AuthStack = () => (

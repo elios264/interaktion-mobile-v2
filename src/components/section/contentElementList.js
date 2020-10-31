@@ -25,7 +25,7 @@ export const ContentElementList = ({ content, onPress }) => {
           <Text style={T('tj')} category='p1' numberOfLines={6}>{description}</Text>
         </View>
       </View>
-      <View style={T('mh4 h1 mv4', { backgroundColor: theme['color-primary-500'] })} />
+      <View style={T('mv4 o-50', { height: 1, backgroundColor: theme['color-primary-500'] })} />
     </TouchableOpacity>
   );
 };
