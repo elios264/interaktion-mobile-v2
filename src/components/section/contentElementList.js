@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo, useCallback, useState } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { Text, useTheme } from '@ui-kitten/components';
 import { TouchableOpacity, View } from 'react-native';
 import { T } from '@shipt/react-native-tachyons';
