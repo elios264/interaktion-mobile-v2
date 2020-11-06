@@ -28,8 +28,10 @@ export const Content = ({ route, navigation }) => {
   return (
     <Layout style={T('flx-i')}>
       <ScrollView>
-        <AutoHeightImage style={T('wp100 rm-contain ba b--white')} source={image} />
-        <View style={T('mv4')}>
+        <View style={T('bg-white')}>
+          <AutoHeightImage style={T('wp100 rm-contain ba b--white')} source={image} />
+        </View>
+        <View style={T('mb4')}>
           {entityType === contentTypes.event && (
             <View style={T('mb4')}>
               <Text selectable>
