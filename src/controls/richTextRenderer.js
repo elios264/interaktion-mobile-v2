@@ -17,7 +17,7 @@ export const RichTextRenderer = ({ document }) => {
 
   const renderLeaf = useCallback(({
     type, children, text,
-    bold, italic, underline,
+    bold, italic,
     url,
   }, index) => {
 
@@ -27,7 +27,6 @@ export const RichTextRenderer = ({ document }) => {
       ff_2b: bold,
       ff_2bi: bold && italic,
       ff_2: !bold && !italic,
-      underline,
       [theme['color-info-600']]: isLink,
     }));
 
@@ -131,9 +130,10 @@ export const RichTextRenderer = ({ document }) => {
           <Text
             key={index}
             selectable
+            appearance={_.get(children, '[0].underline') ? 'alternative' : 'default'}
             status={type === 'h6' ? 'control' : undefined}
             category={type === 'p' ? 'p1' : type}
-            style={T(cx('mh4', alignStyle))}
+            style={T(cx('ph4', alignStyle, { 'bg-white pv4': _.get(children, '[0].underline') }))}
           >
             {_.map(children, renderLeaf)}
           </Text>
