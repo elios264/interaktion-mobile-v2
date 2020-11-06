@@ -7,7 +7,7 @@ export const AutoHeightImage = ({
 }) => {
   const [height, setHeight] = useState(() => (source.height * initialWidth) / source.width);
   const imageStyle = useMemo(() => [...style, { height }], [style, height]);
-  const onLayout = useCallback(({ nativeEvent: { layout } }) => setHeight((source.height * layout.width) / source.width), [source]);
+  const onLayout = useCallback(({ nativeEvent: { layout } }) => setHeight(Math.floor((source.height * layout.width) / source.width)), [source]);
 
   return (
     <Image
