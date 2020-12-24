@@ -26,13 +26,15 @@ const mainScreenOptions = {
   headerTitleAlign: 'center',
   headerTitle: () => <Image source={logo} style={T('w8 hp75 rm-contain')} />,
 };
+const noHeader = { headerShown: false };
 
 const AuthStack = () => (
-  <Auth.Navigator headerMode='none'>
-    <Auth.Screen name='login' component={Login} />
-    <Auth.Screen name='signup' component={Signup} />
-    <Auth.Screen name='reset' component={Reset} />
-    <Auth.Screen name='forgot' component={Forgot} />
+  <Auth.Navigator screenOptions={mainScreenOptions}>
+    <Auth.Screen name='login' component={Login} options={noHeader} />
+    <Auth.Screen name='signup' component={Signup} options={noHeader} />
+    <Auth.Screen name='reset' component={Reset} options={noHeader} />
+    <Auth.Screen name='forgot' component={Forgot} options={noHeader} />
+    <Main.Screen name='page' component={Page} />
   </Auth.Navigator>
 );
 

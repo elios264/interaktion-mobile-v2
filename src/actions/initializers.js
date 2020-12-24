@@ -5,12 +5,13 @@ import * as Font from 'expo-font';
 import { Asset } from 'expo-asset';
 import moment from 'moment';
 
+import { delay } from 'controls/utils';
 import { fonts } from 'theme';
 import { authModes } from 'types';
 import { handleError } from './utils';
 import { accessAsAnonymous } from './authentication'; // eslint-disable-line import/no-cycle
 
-export const initialize = (store) => handleError(async (dispatch, getState, { api }) => {
+export const initialize = (store) => handleError(async (dispatch, getState, { api, nav }) => {
   dispatch({ type: 'SET_INITIALIZING', running: true });
 
   try {
@@ -27,6 +28,15 @@ export const initialize = (store) => handleError(async (dispatch, getState, { ap
   } finally {
     dispatch({ type: 'SET_INITIALIZING', running: false });
     SplashScreen.hideAsync();
+
+    const { user, anonymousAccess } = getState().userInfo;
+    const { authMode } = getState().appInfo.config.features;
+    const page = _.find(getState().objects.pages);
+    if (page && !anonymousAccess && user.isAnonymous && authMode !== authModes.public) {
+      await delay(1000);
+      nav.current.navigate('page', { id: page.id });
+    }
+
   }
 }, i18n.t('error.initialize'));
 

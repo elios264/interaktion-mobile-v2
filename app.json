@@ -12,14 +12,14 @@
     "ios": {
       "requireFullScreen": true,
       "bundleIdentifier": "com.luxury.world",
-      "buildNumber": "18"
+      "buildNumber": "21"
     },
     "androidStatusBar": {
       "hidden": true
     },
     "android": {
       "package": "com.luxury.world",
-      "versionCode": 18,
+      "versionCode": 21,
       "permissions": [],
       "useNextNotificationsApi": true,
       "googleServicesFile": "./google-services.json"
